@@ -1,6 +1,7 @@
 ---
 import Site from '../layouts/Site.astro';
 import EarlyAccess from '../components/EarlyAccess.astro';
+import Mock from '../components/Mock.astro';
 ---
 <Site title="codemap Team pilot" description="A priced pilot for teams running three or more coding agents on one repository: an attributed collision check on your runners, a morning ledger, and blast facts on every PR.">
 <main class="prose">
@@ -25,6 +26,7 @@ import EarlyAccess from '../components/EarlyAccess.astro';
     <li><b>A morning ledger</b> in the channel you choose: opened, merged, open, hub touches, PRs grouped by the agent session that wrote them.</li>
     <li><b>The coverage line on everything.</b> Every result says what it stands behind and what it did not test.</li>
   </ul>
+  <div style="margin-top:22px"><Mock name="ghcomment" w={860} h={760} caption="The artifact you are buying: the check and the comment on the PR. Example repository, real output shape." /></div>
 
   <h2>What it costs</h2>
   <p><span class="ph">[PRICE per private repo per month]</span>. Public repositories are free. 14-day trial without a card. Cancel any time from the billing portal; uninstalling the App stops billing at the end of the paid period. Refund rule: if pair builds never ran on your repository during a paid month, that month is refunded.</p>

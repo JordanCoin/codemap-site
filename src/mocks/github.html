@@ -1,0 +1,40 @@
+<div style="width:1240px;height:800px;background:#ffffff;overflow:hidden;position:relative">
+
+<div class="gh-top"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" fill="#1f2328"/></svg><div class="gh-nav"><span>JordanCoin / <b>aswb-backend</b></span></div><div style="margin-left:auto;display:flex;gap:16px;color:#57606a;font-size:13px"><span>Code</span><span>Issues</span><span style="color:#1f2328;font-weight:600">Pull requests</span><span>Actions</span></div></div>
+<div style="padding:22px 24px 0 24px;display:flex;gap:28px">
+  <div style="flex:1;min-width:0">
+    <h1 class="gh-title">fix(privacy): sweep emailLogs on account deletion <span style="color:#57606a">#363</span></h1>
+    <div style="margin-top:8px;display:flex;align-items:center;gap:10px;color:#57606a"><span class="gh-state">Open</span><span><b style="color:#1f2328">JordanCoin</b> wants to merge 1 commit into <span class="mono" style="background:#ddf4ff;color:#0969da;padding:1px 6px;border-radius:6px">main</span> from <span class="mono" style="background:#ddf4ff;color:#0969da;padding:1px 6px;border-radius:6px">fix/sweep-email-logs</span></span></div>
+    <div class="gh-tabs"><span class="on">Conversation</span><span>Commits <span class="cm-pill">1</span></span><span>Checks <span class="cm-pill">2</span></span><span>Files changed <span class="cm-pill">3</span></span></div>
+
+    <div class="gh-comment">
+      <div class="hd"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" fill="#57606a"/></svg><b>github-actions</b><span class="cm-pill">bot</span><span>commented 2 minutes ago</span><span style="margin-left:auto" class="cm-badge"><svg width="14" height="14" viewBox="0 0 32 32" aria-hidden="true"><rect x="5" y="14" width="6" height="13" fill="#c96a5a"/><rect x="13" y="5" width="6" height="22" fill="#8fc7c2"/><rect x="21" y="17" width="6" height="10" fill="#d8b26a"/></svg> codemap</span></div>
+      <div class="bd">
+        <div style="font-weight:600">This PR (#363) does not build together with #371 "feat(email): batch sends through the queue" by @JordanCoin. Each is green alone. Whichever merges second breaks main.</div>
+        <div class="cm-h">Failing pairs</div>
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap"><b>#363 + #371</b><span>· build failed ·</span><span class="cm-pill high">likelihood high</span><span>· shared: <span class="mono">src/email/emailService.ts</span> (32 importers)</span></div>
+        <pre class="cm-pre" style="margin-top:8px">src/email/emailService.ts:214:9: Property 'sendBatch' does not exist on type 'EmailService'.
+src/jobs/sweepEmailLogs.ts:41:22: Expected 2 arguments, but got 1.</pre>
+        <div class="cm-h">Merge order</div>
+        <div>Land #371 first, then rebase this PR.</div>
+        <div class="mono" style="font-size:13px;margin-top:4px">1. #371<br>2. #363 (rebase after #371)</div>
+        <div class="cm-h">Files in this PR that others depend on</div>
+        <div style="display:flex;align-items:center;gap:8px"><span class="cm-pill high">Blast radius: HIGH</span><span class="mono" style="font-size:13px">src/email/emailService.ts · 32 importers · 2 hubs touched</span></div>
+        <div class="cm-h">Docs that mention what you changed</div>
+        <div class="mono" style="font-size:13px">docs/PRIVACY.md &gt; Account deletion · <span style="color:#9a7218">unchanged in this PR</span></div>
+        <div class="cm-h">Coverage</div>
+        <div class="cm-cov"><span class="cm-pill trust">trust high</span> · coverage complete · 3 open PRs · 1 shared file · codemap 4.5.1</div>
+      </div>
+    </div>
+
+    <div class="gh-merge">
+      <div class="row"><span class="gh-x"></span><div><div style="font-weight:600">Some checks were not successful</div><div style="color:#57606a;font-size:13px">1 failing, 1 successful check</div></div></div>
+      <div class="row" style="background:#f6f8fa;font-size:13px"><span class="gh-x" style="width:12px;height:12px"></span><span class="cm-badge"><svg width="14" height="14" viewBox="0 0 32 32" aria-hidden="true"><rect x="5" y="14" width="6" height="13" fill="#c96a5a"/><rect x="13" y="5" width="6" height="22" fill="#8fc7c2"/><rect x="21" y="17" width="6" height="10" fill="#d8b26a"/></svg></span><b>collide</b><span style="color:#57606a">/ collide (pull_request)</span><span style="color:#57606a">Failing after 17s</span><a style="margin-left:auto">Details</a></div>
+      <div class="row" style="background:#f6f8fa;font-size:13px"><span style="width:12px;height:12px;border-radius:50%;background:#1a7f37;display:inline-block"></span><b>ci</b><span style="color:#57606a">/ test (pull_request)</span><span style="color:#57606a">Successful in 2m 4s</span><a style="margin-left:auto">Details</a></div>
+      <div class="row"><span class="gh-x"></span><div><div style="font-weight:600">Merging is blocked</div><div style="color:#57606a;font-size:13px">The collide check is required to pass before merging.</div></div></div>
+      <div class="row"><span class="gh-btn" style="background:#94d3a2;border-color:transparent">Squash and merge</span><span style="color:#57606a;font-size:13px">You can also merge this with the command line.</span></div>
+    </div>
+  </div>
+  <div class="gh-side"><div>Reviewers<br><span style="color:#1f2328">No reviews</span></div><div>Assignees<br><span style="color:#1f2328">No one</span></div><div>Labels<br><span class="cm-pill" style="color:#b5503f;border-color:#f0c4bb;background:#fbeeea">blast:high</span> <span class="cm-pill">collide</span></div><div>Development<br><span style="color:#1f2328">ENG-412</span></div></div>
+</div>
+</div>
