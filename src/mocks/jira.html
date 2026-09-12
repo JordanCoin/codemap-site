@@ -1,0 +1,33 @@
+<div style="width:1240px;height:800px;background:#ffffff;overflow:hidden;position:relative">
+
+<div class="jr-top"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.571 11.513H0a5.218 5.218 0 0 0 5.232 5.215h2.13v2.057A5.215 5.215 0 0 0 12.575 24V12.518a1.005 1.005 0 0 0-1.005-1.005zm5.723-5.756H5.736a5.215 5.215 0 0 0 5.215 5.214h2.129v2.058a5.218 5.218 0 0 0 5.215 5.214V6.758a1.001 1.001 0 0 0-1.001-1.001zM23.013 0H11.455a5.215 5.215 0 0 0 5.215 5.215h2.129v2.057A5.215 5.215 0 0 0 24 12.483V1.005A1.001 1.001 0 0 0 23.013 0Z" fill="#0c66e4"/></svg><b style="color:#172b4d">Jira</b><span>Your work</span><span>Projects</span><span>Filters</span><span>Dashboards</span></div>
+<div style="display:flex;gap:36px;padding:22px 28px">
+  <div style="flex:1;min-width:0">
+    <div class="jr-key">SWTPA / ENG-412</div>
+    <div class="jr-title">Sweep emailLogs on account deletion</div>
+    <div style="display:flex;gap:8px;margin-top:12px"><span class="jr-btn ghost">Attach</span><span class="jr-btn ghost">Link issue</span></div>
+    <div class="jr-lbl">Description</div>
+    <div class="jr-desc">When a learner deletes their account, rows in emailLogs keep their address. Sweep them in the deletion job and assert zero rows after delete.</div>
+    <div class="jr-panel">
+      <div class="hd"><svg width="14" height="14" viewBox="0 0 32 32" aria-hidden="true"><rect x="5" y="14" width="6" height="13" fill="#c96a5a"/><rect x="13" y="5" width="6" height="22" fill="#8fc7c2"/><rect x="21" y="17" width="6" height="10" fill="#d8b26a"/></svg> Codemap Brief <span style="margin-left:auto;font-weight:400;color:#6b778c;font-size:12px">JordanCoin/aswb-backend · <span class="cm-pill trust">trust high</span></span></div>
+      <div class="bd">
+        <div style="font-weight:600;font-size:15px">This issue's PR collides with #371. Land #371 first.</div>
+        <div class="jr-row"><span style="color:#6b778c">Right now</span><span>#363 + #371 share <span class="mono" style="font-size:12.5px">src/email/emailService.ts</span> · pair build <b style="color:#b5503f">failed</b></span></div>
+        <div class="jr-row"><span style="color:#6b778c">Blast radius</span><span><span class="cm-pill high">HIGH</span> emailService.ts is imported by 32 files</span></div>
+        <div class="jr-row"><span style="color:#6b778c">The one thing to know</span><span><span class="mono" style="font-size:12.5px">src/adaptive-core/index.ts</span>, 80 files depend on it</span></div>
+        <div class="jr-row"><span style="color:#6b778c">Where the weight sits</span><span>Core 41% · API 23% · Data 12% · Email 6%</span></div>
+        <div class="jr-row"><span style="color:#6b778c">Docs</span><span>docs/PRIVACY.md › Account deletion mentions this file and did not change</span></div>
+        <div class="jr-ask"><input id="jira-ask" value="who depends on emailService"><span class="jr-btn">Ask</span></div>
+        <div style="font-size:12px;color:#6b778c;margin-top:6px">Reading that as: importers of a file</div>
+        <div style="margin-top:10px;border:1px solid #dfe1e6;border-radius:4px;padding:10px 12px">
+          <div style="font-weight:600">32 files import src/email/emailService.ts</div>
+          <div class="mono" style="font-size:12.5px;margin-top:4px;color:#42526e">src/jobs/sweepEmailLogs.ts:3<br>src/api/account/delete.ts:11<br>src/adaptive-core/notify.ts:7 <span style="color:#6b778c">… 29 more</span></div>
+          <div style="display:flex;gap:8px;margin-top:10px"><span class="jr-btn ghost">Create Jira issue</span><span class="jr-btn ghost">Ask an agent</span><span class="jr-btn ghost">Watch this</span></div>
+        </div>
+        <div class="cm-cov" style="margin-top:10px">coverage complete · from commit a172b46 · 3 min ago</div>
+      </div>
+    </div>
+  </div>
+  <div class="jr-side"><div class="r"><span style="color:#6b778c">Status</span><b>In Progress</b></div><div class="r"><span style="color:#6b778c">Assignee</span><span>Jordan Jackson</span></div><div class="r"><span style="color:#6b778c">Labels</span><span><span class="cm-pill">repo:JordanCoin/aswb-backend</span></span></div><div class="r"><span style="color:#6b778c">Priority</span><span>High</span></div><div class="r"><span style="color:#6b778c">Development</span><span>1 pull request · <b style="color:#b5503f">check failing</b></span></div></div>
+</div>
+</div>
