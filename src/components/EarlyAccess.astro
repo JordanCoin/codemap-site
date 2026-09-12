@@ -1,0 +1,38 @@
+---
+interface Props { id?: string }
+const { id = 'early-access' } = Astro.props;
+---
+<form class="ea" id={id} method="post" action="https://codemap-brief-webhook.vercel.app/api/early-access">
+  <h3>Early access</h3>
+  <p class="muted" style="margin-top:6px;font-size:.92em">Tell us the repo and we reply within 48 hours with whether it is eligible for the pilot.</p>
+  <div class="row">
+    <label>Name<input name="name" id={`${id}-name`} required autocomplete="name"></label>
+    <label>Work email<input name="email" id={`${id}-email`} type="email" required autocomplete="email"></label>
+    <label class="full">Repository URL<input name="repo" id={`${id}-repo`} type="url" placeholder="https://github.com/org/repo" required></label>
+    <label>Team size<select name="team_size" id={`${id}-team`}><option>1 to 2</option><option selected>3 to 15</option><option>16 to 50</option><option>more than 50</option></select></label>
+    <label>Stack<select name="stack" id={`${id}-stack`}><option>Go</option><option>TypeScript</option><option>Python</option><option>Swift</option><option>Rust</option><option>other</option></select></label>
+  </div>
+  <div style="margin-top:14px;display:flex;gap:12px;align-items:center;flex-wrap:wrap"><button class="btn primary" type="submit">Request early access</button><span class="muted" style="font-size:.84em">No card. We only email about the pilot.</span></div>
+  <div class="out" aria-live="polite"></div>
+</form>
+<script is:inline>
+(function(){
+  document.querySelectorAll('form.ea').forEach(function(f){
+    f.addEventListener('submit', async function(e){
+      e.preventDefault();
+      var out=f.querySelector('.out'); var btn=f.querySelector('button');
+      var data=Object.fromEntries(new FormData(f).entries()); data.source=location.pathname;
+      btn.disabled=true; out.textContent='Sending';
+      try{
+        var r=await fetch(f.action,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(data)});
+        if(!r.ok) throw new Error('http '+r.status);
+        out.textContent='Recorded. We reply within 48 hours.'; f.reset();
+      }catch(err){
+        var body=encodeURIComponent(Object.entries(data).map(function(kv){return kv[0]+': '+kv[1]}).join('\n'));
+        out.textContent='Could not reach the server. Opening your mail client instead.';
+        location.href='mailto:jordancoinjackson@gmail.com?subject=codemap%20early%20access&body='+body;
+      }finally{ btn.disabled=false; }
+    });
+  });
+})();
+</script>

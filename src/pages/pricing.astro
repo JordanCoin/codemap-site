@@ -1,0 +1,39 @@
+---
+import Site from '../layouts/Site.astro';
+---
+<Site title="codemap pricing" description="Free CLI and MCP server forever. Team pricing per private repository per month, set with the first ten teams.">
+<main class="prose" style="max-width:1100px">
+  <div class="kicker">Pricing</div>
+  <h1 style="margin-top:12px">Free CLI. Paid when your fleet needs a control room.</h1>
+  <style>
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:36px}
+    .card{border:1px solid var(--line);border-radius:12px;padding:26px;background:var(--panel);display:flex;flex-direction:column}
+    .card.hi{border-color:var(--teal)}
+    .card .name{font-family:var(--display);font-size:1.5em;font-weight:600}
+    .card .price{margin-top:6px;font-family:var(--mono);color:var(--muted);font-size:.86em}
+    .card ul{margin:18px 0 0;padding:0;list-style:none;flex:1}
+    .card li{padding:8px 0;border-top:1px solid var(--line2);font-size:.92em;color:var(--muted)}
+    .card li b{color:var(--text);font-weight:500}
+    .card .btn{margin-top:22px;text-align:center}
+    @media (max-width:900px){.cards{grid-template-columns:1fr}}
+  </style>
+  <div class="cards">
+    <div class="card">
+      <div class="name">Free</div><div class="price">forever · MIT</div>
+      <ul><li><b>The whole CLI.</b> Structure, deps, importers, diff, find, blast radius, collide, handoff.</li><li><b>MCP server and hooks</b> for Claude Code, Codex, Cursor.</li><li><b>The CI action</b> on your own runners, self-serve.</li><li><b>Coverage contract</b> on every answer.</li></ul>
+      <a class="btn" href="/#install">Install</a>
+    </div>
+    <div class="card hi">
+      <div class="name">Team</div><div class="price"><span class="ph">[PRICE per private repo per month]</span> · public repos free</div>
+      <ul><li><b>Confirmed interaction checks</b> with the four-way classification and the pair named on the PR.</li><li><b>Morning ledger</b> in your channel, grouped by agent session.</li><li><b>Blast facts</b> on every PR.</li><li><b>Calibration log</b> so the hit rate is measured on your repo.</li><li><b>Your runners.</b> Nothing of yours runs on ours.</li><li><b>14-day trial</b>, no card. Cancel any time.</li></ul>
+      <a class="btn primary" href="/offer/">Read the pilot offer</a>
+    </div>
+    <div class="card">
+      <div class="name">Enterprise</div><div class="price">priced by hand</div>
+      <ul><li><b>Self-hosted control plane</b> on your infrastructure.</li><li><b>SSO and audit log</b> on request.</li><li><b>Hosted execution</b> in a sandbox, when you want us to run the builds.</li><li><b>A named human</b> and a support agreement.</li></ul>
+      <a class="btn" href="/security/">Read the security packet</a>
+    </div>
+  </div>
+  <p class="muted" style="margin-top:22px;font-size:.92em">Prices are set with the first ten teams. Every paid result says what it did not test.</p>
+</main>
+</Site>

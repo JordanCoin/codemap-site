@@ -1,0 +1,3 @@
+:root { --sl-font: "Instrument Sans", "Helvetica Neue", Helvetica, sans-serif; --sl-font-mono: "JetBrains Mono", ui-monospace, Menlo, monospace; }
+:root[data-theme="dark"] { --sl-color-accent: #8fc7c2; --sl-color-accent-low: #1e3230; --sl-color-accent-high: #a9dcd8; --sl-color-bg: #1b1e26; --sl-color-bg-nav: #161920; --sl-color-bg-sidebar: #1b1e26; }
+:root[data-theme="light"] { --sl-color-accent: #237f79; --sl-color-accent-low: #d9eeec; --sl-color-accent-high: #1a5f5a; }

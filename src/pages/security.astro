@@ -1,0 +1,42 @@
+---
+import Site from '../layouts/Site.astro';
+---
+<Site title="codemap security" description="Architecture, GitHub App permissions, data handling, subprocessors, and how to report a vulnerability. Honest about what does not exist yet.">
+<main class="prose">
+  <div class="kicker">Security packet</div>
+  <h1 style="margin-top:12px">What runs where, what we store, and what we do not have yet.</h1>
+
+  <h2>Architecture in five sentences</h2>
+  <p>Facts about your repository are computed on your GitHub runners by the open-source codemap binary. The control plane receives a snapshot of those facts and stores it per installation. A snapshot contains file paths, importer counts, open PR numbers and titles, the shared-file list, pair-build outcomes, and the first 24 KB of text for files the pipeline indexes, capped at 3 MB per repository. GitHub installation tokens are short-lived and are never written to the snapshot; long-lived secrets live in a secrets manager with rotation. Snapshots are retained for 30 days after the last push and deleted within 24 hours of an uninstall or a written request.</p>
+
+  <h2>Permissions the GitHub App requests</h2>
+  <table>
+    <tr><th>Permission</th><th>Why</th></tr>
+    <tr><td>Contents: read</td><td>Clone the repository on your runner to compute the graph.</td></tr>
+    <tr><td>Pull requests: read and write</td><td>List open PRs for collision candidates. Post one sticky comment you can switch off.</td></tr>
+    <tr><td>Checks: write</td><td>Create the <code>collide</code> Check Run with its summary and annotations.</td></tr>
+    <tr><td>Metadata: read</td><td>Required by GitHub for every App.</td></tr>
+  </table>
+  <p>No access to issues, actions secrets, organization members, or other repositories than the ones you select at install.</p>
+
+  <h2>Subprocessors</h2>
+  <ul>
+    <li>GitHub, for the App, webhooks, and Check Runs.</li>
+    <li>Vercel, for the control plane and this site.</li>
+    <li>Neon, for the Postgres database holding snapshots.</li>
+    <li>Stripe, for billing. We never see card numbers.</li>
+  </ul>
+
+  <h2>What does not exist yet</h2>
+  <ul>
+    <li>No SOC 2 report.</li>
+    <li>No third-party penetration test.</li>
+    <li>No hosted execution of your code. The pilot runs on your runners only.</li>
+    <li>No single sign-on. Sign in is with GitHub.</li>
+  </ul>
+  <p>We would rather you read that list than discover it in procurement.</p>
+
+  <h2>Reporting a vulnerability</h2>
+  <p>Email <span class="ph">[SECURITY EMAIL]</span> with the details. We acknowledge within two business days and do not pursue people who report in good faith.</p>
+</main>
+</Site>

@@ -1,0 +1,49 @@
+---
+import Site from '../layouts/Site.astro';
+import EarlyAccess from '../components/EarlyAccess.astro';
+---
+<Site title="codemap Team pilot" description="A priced pilot for teams running three or more coding agents on one repository: an attributed collision check on your runners, a morning ledger, and blast facts on every PR.">
+<main class="prose">
+  <div class="kicker">The pilot offer</div>
+  <h1 style="margin-top:12px">A collision check that names the pair, on your runners, for one repository.</h1>
+  <p class="muted" style="font-size:1.1em">Written for one buyer. If the first section does not describe your team, the free CLI is the right product and it costs nothing.</p>
+
+  <h2>Who it is for</h2>
+  <ul>
+    <li>A team of 3 to 15 engineers.</li>
+    <li>Three or more coding agents opening pull requests on one repository.</li>
+    <li>Go, TypeScript with npm or pnpm, or Python with pytest. Other stacks are unsupported in the pilot and we say so before you start.</li>
+    <li>A recent case where two green PRs did not work together, or a merge order that cost you an afternoon.</li>
+    <li>Someone with authority to install a GitHub App and approve a small monthly charge.</li>
+  </ul>
+
+  <h2>What you get</h2>
+  <ul>
+    <li><b>A confirmed interaction check.</b> On every pull request, the open PRs that share files with it are pair-built on your GitHub runners. The check goes red only when base passes, base plus A passes, base plus B passes, and base plus A plus B fails. Textual conflicts, independently broken PRs, dependency failures and flakes are reported as inconclusive, never as a collision.</li>
+    <li><b>The pair named on the PR.</b> A Check Run with the other PR's title and author, the shared files with importer counts, the first compiler lines, and what was skipped.</li>
+    <li><b>Blast facts on every PR.</b> The changed files that other files depend on, with counts. Number first, label last, threshold stated.</li>
+    <li><b>A morning ledger</b> in the channel you choose: opened, merged, open, hub touches, PRs grouped by the agent session that wrote them.</li>
+    <li><b>The coverage line on everything.</b> Every result says what it stands behind and what it did not test.</li>
+  </ul>
+
+  <h2>What it costs</h2>
+  <p><span class="ph">[PRICE per private repo per month]</span>. Public repositories are free. 14-day trial without a card. Cancel any time from the billing portal; uninstalling the App stops billing at the end of the paid period. Refund rule: if pair builds never ran on your repository during a paid month, that month is refunded.</p>
+  <p class="muted">Prices are set with the first ten teams. This page is updated when the number is fixed.</p>
+
+  <h2>What we need from you</h2>
+  <ul>
+    <li>One eligible repository and the build command your CI already runs.</li>
+    <li>One 30-minute call to baseline your last 30 days of PRs with the free CLI and agree what counts as useful evidence.</li>
+    <li>A decision date, two to four weeks out. On that date you buy, or you tell us why not, and either answer is a good outcome.</li>
+  </ul>
+
+  <h2>What we will not do</h2>
+  <ul>
+    <li>Run your code on our machines. The pilot runs on your runners. Hosted execution is a separate, priced option when a customer asks for it.</li>
+    <li>Merge, close, rebase or comment beyond the check and one sticky comment you can switch off.</li>
+    <li>Put a model in the answer path. Every line is computed from your repository and cites its source.</li>
+  </ul>
+
+  <EarlyAccess id="ea-offer" />
+</main>
+</Site>

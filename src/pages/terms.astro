@@ -1,0 +1,31 @@
+---
+import Site from '../layouts/Site.astro';
+---
+<Site title="codemap terms" description="Draft cloud service terms for codemap Team, following the Common Paper Cloud Service Agreement structure. Not yet in force.">
+<main class="prose">
+  <div class="kicker">Terms of service</div>
+  <h1 style="margin-top:12px">Cloud service terms</h1>
+  <div class="banner">Draft, not yet in force. Follows the structure of the Common Paper Cloud Service Agreement. Placeholders are marked. Nothing on this page binds anyone until the placeholders are filled and a version date is set.</div>
+  <h2>1. Parties</h2>
+  <p>The service is provided by <span class="ph">[SELLER ENTITY]</span> (the Provider) to the organization that installs the codemap GitHub App or subscribes to codemap Team (the Customer).</p>
+  <h2>2. The service</h2>
+  <p>Provider computes facts about repositories the Customer selects, using software the Customer runs on its own GitHub Actions runners, and stores the resulting snapshots to render checks, comments, ledgers and dashboards. Provider does not execute Customer code on Provider systems under these terms.</p>
+  <h2>3. Customer responsibilities</h2>
+  <p>Customer confirms it has the right to submit the selected repositories for analysis and to install the App. Customer will not use the service to analyze repositories it is not authorized to access.</p>
+  <h2>4. Fees, trials, cancellation</h2>
+  <p>Fees are per private repository per month as shown on the pricing page at the time of purchase. Public repositories are free. Trials last 14 days and require no card. Customer may cancel any time from the billing portal; uninstalling the App stops billing at the end of the paid period. If pair builds never ran on a paid repository during a month, that month is refunded on request.</p>
+  <h2>5. Data</h2>
+  <p>Provider processes the data described on the security page and deletes it within 24 hours of uninstall or written request, except billing records retained as required by law. The privacy notice and, where applicable, a data processing addendum apply.</p>
+  <h2>6. Availability and support</h2>
+  <p>Provider publishes a status page and replies to support requests within 48 hours on business days. No uptime commitment is made under these terms.</p>
+  <h2>7. Warranties and liability</h2>
+  <p>The service is provided as is. Every result states its own coverage; Customer is responsible for decisions taken on it. Provider's total liability is limited to the fees paid in the twelve months before the claim.</p>
+  <h2>8. Suspension and termination</h2>
+  <p>Provider may suspend the service for abuse, non-payment, or a security incident, and will notify Customer. Either party may terminate at the end of a paid period.</p>
+  <h2>9. Governing law</h2>
+  <p><span class="ph">[GOVERNING LAW]</span>.</p>
+  <h2>10. Changes</h2>
+  <p>Provider records the version a Customer accepted and gives 30 days notice of material changes.</p>
+  <p class="muted">Contact: <span class="ph">[SUPPORT EMAIL]</span></p>
+</main>
+</Site>
